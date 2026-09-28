@@ -1,0 +1,771 @@
+/* =========================================
+   GENERAL
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    color: #5d4a52;
+    background-color: #fff8fc;
+    overflow-x: hidden;
+}
+
+
+button {
+    font-family: inherit;
+}
+
+
+/* =========================================
+   ALL PAGES
+========================================= */
+
+.page {
+    width: 100%;
+    min-height: 100vh;
+}
+
+
+/* =========================================
+   HOMEPAGE
+========================================= */
+
+.home-page {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 100vh;
+
+    padding: 60px 30px;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            #ffe4ef 0%,
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 85% 80%,
+            #e9e1ff 0%,
+            transparent 25%
+        ),
+
+        #fff9fc;
+
+    overflow: hidden;
+}
+
+
+.home-content {
+    width: 100%;
+    max-width: 950px;
+
+    text-align: center;
+
+    animation: fadeUp 1s ease;
+}
+
+
+.small-title {
+    margin-bottom: 12px;
+
+    color: #c58ba2;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    letter-spacing: 5px;
+}
+
+
+.home-content h1 {
+    margin-bottom: 18px;
+
+    color: #a96f87;
+
+    font-size: clamp(45px, 7vw, 80px);
+    font-weight: bold;
+}
+
+
+.welcome-text {
+    margin-bottom: 45px;
+
+    color: #856d77;
+
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   MONTH BUTTONS
+========================================= */
+
+.month-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 18px;
+
+    width: 100%;
+}
+
+
+.month-grid button {
+    min-height: 85px;
+
+    padding: 20px 15px;
+
+    border: none;
+    border-radius: 25px;
+
+    background: rgba(255, 255, 255, 0.85);
+
+    color: #9b657c;
+
+    font-size: 17px;
+    font-weight: bold;
+
+    box-shadow:
+        0 10px 30px rgba(160, 110, 135, 0.12);
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background-color 0.3s ease;
+}
+
+
+.month-grid button:hover {
+    transform: translateY(-8px);
+
+    background-color: #ffffff;
+
+    box-shadow:
+        0 18px 35px rgba(160, 110, 135, 0.20);
+}
+
+
+.month-grid button:active {
+    transform: translateY(-3px);
+}
+
+
+/* =========================================
+   FLOATING DECORATIONS
+========================================= */
+
+.floating {
+    position: absolute;
+
+    pointer-events: none;
+
+    user-select: none;
+
+    animation: floatingAnimation 4s ease-in-out infinite;
+}
+
+
+.heart {
+    color: #e6a9bf;
+
+    font-size: 55px;
+}
+
+
+.heart-one {
+    top: 15%;
+    left: 10%;
+}
+
+
+.heart-two {
+    right: 10%;
+    bottom: 15%;
+
+    animation-delay: 1.5s;
+}
+
+
+.star {
+    color: #e0b6c7;
+
+    font-size: 45px;
+}
+
+
+.star-one {
+    top: 20%;
+    right: 15%;
+
+    animation-delay: 1s;
+}
+
+
+.star-two {
+    bottom: 20%;
+    left: 15%;
+
+    animation-delay: 2s;
+}
+
+
+/* =========================================
+   MONTH PAGES
+========================================= */
+
+.month-page {
+    display: none;
+
+    position: relative;
+
+    min-height: 100vh;
+
+    padding: 90px 30px 60px;
+
+    background:
+        radial-gradient(
+            circle at 10% 20%,
+            #ffe5ef 0%,
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 90% 80%,
+            #e8e1ff 0%,
+            transparent 25%
+        ),
+
+        #fff9fc;
+
+    animation: pageAppear 0.7s ease;
+}
+
+
+.month-content {
+    width: 100%;
+    max-width: 1000px;
+
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+
+/* =========================================
+   BACK BUTTON
+========================================= */
+
+.back-button {
+    position: absolute;
+
+    top: 25px;
+    left: 30px;
+
+    padding: 12px 20px;
+
+    border: none;
+    border-radius: 30px;
+
+    background: rgba(255, 255, 255, 0.85);
+
+    color: #9b657c;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    box-shadow:
+        0 5px 20px rgba(130, 90, 110, 0.12);
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        background-color 0.3s ease;
+}
+
+
+.back-button:hover {
+    transform: translateX(-5px);
+
+    background-color: #ffffff;
+}
+
+
+/* =========================================
+   MONTH HEADER
+========================================= */
+
+.month-animation {
+    display: inline-block;
+
+    margin-bottom: 15px;
+
+    font-size: 60px;
+
+    animation: bounceAnimation 2.5s ease-in-out infinite;
+}
+
+
+.month-content h2 {
+    margin-bottom: 12px;
+
+    color: #a96f87;
+
+    font-size: clamp(40px, 6vw, 70px);
+}
+
+
+.month-message {
+    margin-bottom: 45px;
+
+    color: #856d77;
+
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   PHOTO GRID
+========================================= */
+
+.photo-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 25px;
+
+    width: 100%;
+    max-width: 850px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================
+   PHOTO CARD
+========================================= */
+
+.photo-card {
+    padding: 12px;
+
+    border-radius: 25px;
+
+    background-color: #ffffff;
+
+    box-shadow:
+        0 15px 35px rgba(150, 100, 125, 0.15);
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    animation: photoAppear 0.8s ease forwards;
+}
+
+
+.photo-card:nth-child(1) {
+    animation-delay: 0.10s;
+}
+
+
+.photo-card:nth-child(2) {
+    animation-delay: 0.25s;
+}
+
+
+.photo-card:nth-child(3) {
+    animation-delay: 0.40s;
+}
+
+
+.photo-card:nth-child(4) {
+    animation-delay: 0.55s;
+}
+
+
+.photo-card img {
+    display: block;
+
+    width: 100%;
+    height: 300px;
+
+    object-fit: cover;
+
+    border-radius: 18px;
+
+    transition:
+        transform 0.5s ease;
+}
+
+
+.photo-card:hover img {
+    transform: scale(1.06);
+}
+
+
+/* =========================================
+   BIRTHDAY PAGE
+========================================= */
+
+.birthday-page {
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            #ffe2ed 0%,
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 80% 30%,
+            #fff0c9 0%,
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 50% 100%,
+            #e6dcff 0%,
+            transparent 30%
+        ),
+
+        #fff9fc;
+}
+
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+
+}
+
+
+@keyframes pageAppear {
+
+    from {
+        opacity: 0;
+
+        transform: scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: scale(1);
+    }
+
+}
+
+
+@keyframes photoAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(50px)
+            scale(0.90);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+@keyframes floatingAnimation {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(-5deg);
+    }
+
+    50% {
+        transform:
+            translateY(-20px)
+            rotate(5deg);
+    }
+
+}
+
+
+@keyframes bounceAnimation {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 850px) {
+
+    .month-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .home-page {
+        padding: 50px 20px;
+    }
+
+
+    .home-content h1 {
+        font-size: 45px;
+    }
+
+
+    .welcome-text {
+        font-size: 16px;
+
+        margin-bottom: 30px;
+    }
+
+
+    .month-grid {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 12px;
+    }
+
+
+    .month-grid button {
+        min-height: 70px;
+
+        padding: 15px 8px;
+
+        border-radius: 20px;
+
+        font-size: 15px;
+    }
+
+
+    .month-page {
+        padding: 85px 20px 40px;
+    }
+
+
+    .back-button {
+        top: 18px;
+        left: 18px;
+    }
+
+
+    .month-animation {
+        font-size: 48px;
+    }
+
+
+    .month-content h2 {
+        font-size: 42px;
+    }
+
+
+    .month-message {
+        font-size: 16px;
+
+        margin-bottom: 30px;
+    }
+
+
+    .photo-grid {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+
+    .photo-card img {
+        height: 350px;
+    }
+
+
+    .heart,
+    .star {
+        font-size: 35px;
+    }
+
+}
+
+/* ==============================
+   SMALL SPOTIFY MUSIC
+============================== */
+
+.music-section {
+    width: 320px;
+    margin: 20px auto;
+    padding: 12px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 20px;
+    box-shadow: 0 6px 18px rgba(160, 110, 135, 0.12);
+}
+
+.music-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #9b657c;
+    margin-bottom: 3px;
+}
+
+.music-section p {
+    color: #a8798d;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.music-section iframe {
+    width: 100%;
+    height: 152px;
+    border: none;
+    border-radius: 12px;
+}
+
+/* ==============================
+   COMING SOON
+============================== */
+
+.coming-soon {
+    width: min(90%, 500px);
+    margin: 100px auto 0;
+    padding: 45px 25px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(160, 110, 135, 0.15);
+    animation: comingFade 1s ease;
+}
+
+.coming-icon {
+    font-size: 70px;
+    animation: teddyBounce 2s ease-in-out infinite;
+}
+
+.coming-soon h2 {
+    margin-top: 15px;
+    font-size: 28px;
+    color: #9b657c;
+}
+
+.coming-soon h3 {
+    margin-top: 8px;
+    font-size: 22px;
+    color: #d28da8;
+    animation: textGlow 1.8s ease-in-out infinite;
+}
+
+.coming-soon p {
+    margin-top: 15px;
+    color: #a8798d;
+    font-size: 15px;
+}
+
+.coming-stars {
+    margin-top: 20px;
+    font-size: 24px;
+    letter-spacing: 10px;
+    animation: starsFloat 2s ease-in-out infinite;
+}
+
+
+/* Animations */
+
+@keyframes comingFade {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes teddyBounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+@keyframes textGlow {
+    0%, 100% {
+        opacity: 0.7;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes starsFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
